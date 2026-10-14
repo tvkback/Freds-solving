@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5b55e7">
+<meta name="description" content="Fred Solvings is a fun, free maths playground for kids. Calculate, solve problems, and practise maths step by step.">
+<title>Fred Solvings — Fun Maths for Kids</title>
+<style>
+:root{--ink:#20234a;--muted:#626783;--purple:#5b55e7;--purple2:#7772ff;--yellow:#ffd86b;--mint:#bdf4dc;--pink:#ffd6e7;--sky:#d9f1ff;--paper:#fffdf8;--white:#fff;--line:#ecebfa;--shadow:0 14px 36px rgba(51,48,120,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;line-height:1.5}button,input,select{font:inherit}button{cursor:pointer;border:0}.wrap{width:min(1120px,92%);margin:auto}
+header{padding:18px 0;position:sticky;top:0;background:rgba(255,253,248,.92);backdrop-filter:blur(12px);z-index:10;border-bottom:1px solid rgba(236,235,250,.8)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:1.28rem;font-weight:900;letter-spacing:-.6px}.logo{width:44px;height:44px;border-radius:15px;background:var(--yellow);display:grid;place-items:center;font-size:26px;box-shadow:0 4px 0 #efbd42}.navlinks{display:flex;gap:22px;align-items:center}.navlinks a{color:var(--muted);text-decoration:none;font-weight:700;font-size:.94rem}.navlinks a:hover{color:var(--purple)}.nav-cta{background:var(--purple);color:white;padding:11px 17px;border-radius:13px;font-weight:800;text-decoration:none}
+.hero{padding:62px 0 42px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#efedff;color:var(--purple);padding:8px 13px;border-radius:999px;font-weight:800;font-size:.84rem}.hero h1{font-size:clamp(2.7rem,6vw,4.8rem);line-height:1.03;letter-spacing:-3px;margin:18px 0}.hero h1 span{color:var(--purple)}.hero p{color:var(--muted);font-size:1.13rem;max-width:540px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:14px 20px;border-radius:15px;font-weight:900;text-decoration:none;transition:transform .15s,box-shadow .15s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--purple);color:#fff;box-shadow:0 6px 0 #413bc0}.btn-light{background:#fff;border:1px solid var(--line);color:var(--ink)}.hero-art{min-height:340px;border-radius:34px;background:linear-gradient(145deg,#e7e5ff,#d9f5ff);position:relative;display:grid;place-items:center;overflow:hidden}.sun{position:absolute;right:35px;top:26px;width:68px;height:68px;background:var(--yellow);border-radius:50%}.blob{position:absolute;bottom:-60px;left:-35px;width:230px;height:170px;background:var(--mint);border-radius:50%}.frog{position:relative;z-index:1;font-size:clamp(100px,18vw,175px);filter:drop-shadow(0 14px 0 rgba(41,101,81,.12));transform:rotate(-5deg)}.float{position:absolute;background:#fff;padding:11px 15px;border-radius:16px;box-shadow:var(--shadow);font-weight:900}.f1{top:45px;left:28px;transform:rotate(-7deg)}.f2{right:22px;bottom:55px;transform:rotate(6deg)}.f3{left:30px;bottom:34px;transform:rotate(-4deg)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 60px}.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;align-items:center;gap:12px}.stat-icon{font-size:26px}.stat strong{display:block;font-size:1rem}.stat small{color:var(--muted)}
+section{scroll-margin-top:90px}.section-head{text-align:center;max-width:650px;margin:0 auto 26px}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-1.4px;margin:0 0 8px}.section-head p{color:var(--muted);margin:0}.workspace{padding:24px 0 68px}.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{background:#fff;border:1px solid var(--line);border-radius:25px;padding:25px;box-shadow:var(--shadow)}.card-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}.card-emoji{width:48px;height:48px;border-radius:15px;background:var(--sky);display:grid;place-items:center;font-size:25px}.card h3{font-size:1.35rem;margin:0}.sub{color:var(--muted);font-size:.92rem;margin:3px 0 0}
+.calc-display{background:#f5f4ff;border:1px solid #e6e4ff;border-radius:17px;padding:15px;margin-bottom:13px;min-height:88px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}.calc-expression{color:var(--muted);font-size:.95rem;min-height:23px;overflow-wrap:anywhere}.calc-result{font-size:2rem;font-weight:900;overflow-wrap:anywhere}.keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{background:#f7f7fc;border:1px solid #efeff8;border-radius:13px;min-height:49px;font-weight:850;color:var(--ink);font-size:1.05rem}.key:hover{background:#ecebff}.key.op{background:#eeedff;color:var(--purple)}.key.equal{background:var(--purple);color:#fff}.key.clear{background:#fff0f4;color:#b72e60}
+.solve-form{display:flex;gap:9px}.solve-form input{min-width:0;flex:1;border:1.5px solid #e5e4f4;border-radius:14px;padding:13px 14px;outline:none}.solve-form input:focus{border-color:var(--purple);box-shadow:0 0 0 3px #eeedff}.solve-form button{background:var(--purple);color:#fff;border-radius:14px;padding:12px 16px;font-weight:900}.examples{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}.chip{background:#f4f3ff;color:var(--purple);padding:7px 10px;border-radius:999px;font-size:.82rem;font-weight:800}.solution{background:#f1fff8;border:1px solid #d4f7e7;border-radius:17px;padding:16px;min-height:105px}.solution strong{display:block;margin-bottom:5px}.solution p{margin:0;color:#41665a;overflow-wrap:anywhere}.steps{margin:9px 0 0;padding-left:21px;color:#41665a}.steps li{margin:4px 0}
+.practice{padding:0 0 70px}.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.practice-card{border:1px solid var(--line);border-radius:22px;padding:21px;background:#fff;transition:transform .2s}.practice-card:hover{transform:translateY(-3px)}.practice-card:nth-child(1){background:#fff5d9}.practice-card:nth-child(2){background:#e9fff5}.practice-card:nth-child(3){background:#f0efff}.practice-card .big{font-size:31px}.practice-card h3{margin:8px 0 4px}.practice-card p{color:var(--muted);font-size:.9rem;margin:0 0 15px}.practice-card button{background:#fff;border:1px solid rgba(32,35,74,.08);padding:10px 13px;border-radius:12px;font-weight:850;color:var(--ink)}
+.quiz-box{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:23px;padding:22px;display:none}.quiz-box.active{display:block}.quiz-top{display:flex;justify-content:space-between;gap:12px;align-items:center}.quiz-question{font-size:1.65rem;font-weight:900;margin:18px 0}.answers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.answer{background:#f5f4ff;border:1px solid #e8e6ff;border-radius:13px;padding:12px;font-weight:900}.answer:hover{background:#e9e7ff}.feedback{font-weight:800;margin-top:12px;min-height:24px}
+footer{background:#22244b;color:#fff;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-inner p{margin:5px 0 0;color:#d5d6ee;font-size:.9rem}.footer-note{font-size:.82rem;color:#d5d6ee;max-width:460px}
+@media(max-width:760px){.navlinks a:not(.nav-cta){display:none}.hero{padding-top:38px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:265px}.stats{grid-template-columns:1fr;margin-bottom:45px}.stat{padding:13px}.tool-grid{grid-template-columns:1fr}.practice-grid{grid-template-columns:1fr}.card{padding:19px}.footer-inner{align-items:flex-start;flex-direction:column}.hero h1{letter-spacing:-2px}.answers{grid-template-columns:1fr}.solve-form{flex-wrap:wrap}.solve-form input{flex-basis:100%}.solve-form button{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#" aria-label="Fred Solvings home"><span class="logo">🐸</span><span>Fred Solvings</span></a>
+<nav class="navlinks" aria-label="Main navigation"><a href="#calculator">Calculator</a><a href="#solver">Math Solver</a><a href="#practice">Practice</a><a class="nav-cta" href="#practice">Play & Learn ✨</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><span class="eyebrow">🌟 A happy place to learn maths</span><h1>Big maths skills.<br><span>Little steps.</span></h1><p>Welcome to Fred Solvings! Calculate, solve simple maths problems, and practise with fun quizzes — all for free.</p><div class="actions"><a class="btn btn-primary" href="#solver">Solve a problem <span>→</span></a><a class="btn btn-light" href="#practice">🎯 Try a maths game</a></div></div>
+<div class="hero-art" aria-label="Friendly frog mascot with maths symbols"><div class="sun"></div><div class="blob"></div><span class="float f1">2 + 3 = 5</span><span class="float f2">✨ You can do it!</span><span class="float f3">÷ × + −</span><div class="frog" role="img" aria-label="Happy frog">🐸</div></div>
+</div></section>
+<div class="wrap stats">
+<div class="stat"><span class="stat-icon">🆓</span><div><strong>Always free</strong><small>No subscription needed</small></div></div>
+<div class="stat"><span class="stat-icon">🧠</span><div><strong>Learn by doing</strong><small>Clear, simple steps</small></div></div>
+<div class="stat"><span class="stat-icon">🔒</span><div><strong>Kid-friendly</strong><small>No account required</small></div></div>
+</div>
+<section class="workspace" id="calculator"><div class="wrap">
+<div class="section-head"><h2>Your maths toolbox 🧰</h2><p>Use the calculator or type a maths problem to see how it works.</p></div>
+<div class="tool-grid">
+<article class="card"><div class="card-title"><div class="card-emoji">🧮</div><div><h3>Quick Calculator</h3><p class="sub">Add, subtract, multiply and divide</p></div></div>
+<div class="calc-display" aria-live="polite"><div class="calc-expression" id="expression">Ready when you are!</div><div class="calc-result" id="display">0</div></div>
+<div class="keypad" id="keypad">
+<button class="key clear" data-key="C">C</button><button class="key" data-key="(">(</button><button class="key" data-key=")">)</button><button class="key op" data-key="÷">÷</button>
+<button class="key" data-key="7">7</button><button class="key" data-key="8">8</button><button class="key" data-key="9">9</button><button class="key op" data-key="×">×</button>
+<button class="key" data-key="4">4</button><button class="key" data-key="5">5</button><button class="key" data-key="6">6</button><button class="key op" data-key="−">−</button>
+<button class="key" data-key="1">1</button><button class="key" data-key="2">2</button><button class="key" data-key="3">3</button><button class="key op" data-key="+">+</button>
+<button class="key" data-key="0">0</button><button class="key" data-key=".">.</button><button class="key" data-key="⌫">⌫</button><button class="key equal" data-key="=">=</button>
+</div></article>
+<article class="card" id="solver"><div class="card-title"><div class="card-emoji" style="background:var(--pink)">💡</div><div><h3>Math Problem Solver</h3><p class="sub">Type a simple sum and get the answer</p></div></div>
+<form class="solve-form" id="solveForm"><input id="problem" autocomplete="off" aria-label="Math problem" placeholder="Try 12 × 4 or (8 + 2) / 5" required><button type="submit">Solve it!</button></form>
+<div class="examples"><button class="chip" type="button" data-example="12 × 4">12 × 4</button><button class="chip" type="button" data-example="25 + 17">25 + 17</button><button class="chip" type="button" data-example="(8 + 2) / 5">(8 + 2) / 5</button></div>
+<div class="solution" id="solution" aria-live="polite"><strong>🌱 Ready to solve?</strong><p>Enter a problem above. Fred will show the answer and a simple explanation.</p></div>
+<p class="sub" style="margin-top:12px">Tip: use +, −, ×, ÷ and brackets. This tool solves arithmetic, not every kind of equation.</p>
+</article>
+</div></div></section>
+<section class="practice" id="practice"><div class="wrap"><div class="section-head"><h2>Pick your practice 🌈</h2><p>Small challenges help your maths brain grow stronger.</p></div>
+<div class="practice-grid">
+<div class="practice-card"><div class="big">➕</div><h3>Addition</h3><p>Put numbers together and find the total.</p><button type="button" data-mode="add">Start addition →</button></div>
+<div class="practice-card"><div class="big">➖</div><h3>Subtraction</h3><p>Take some away and find what remains.</p><button type="button" data-mode="sub">Start subtraction →</button></div>
+<div class="practice-card"><div class="big">✖️</div><h3>Multiplication</h3><p>Practise equal groups and times tables.</p><button type="button" data-mode="mul">Start multiplication →</button></div>
+</div>
+<div class="quiz-box" id="quiz"><div class="quiz-top"><strong id="quizMode">🎯 Maths challenge</strong><span class="chip" id="score">Score: 0</span></div><div class="quiz-question" id="question">Ready?</div><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><button class="btn btn-light" id="nextQuestion" type="button" style="margin-top:14px">Next question ↗</button></div>
+</div></section>
+</main>
+<footer><div class="wrap footer-inner"><div><a class="brand" href="#" style="color:#fff"><span class="logo">🐸</span><span>Fred Solvings</span></a><p>Making maths feel like play. ✨</p></div><div class="footer-note">Free learning tool for kids and families. This starter website does not require an account and does not send maths problems to a server. For your safety, never enter personal information online.</div></div></footer>
+<script>
+(() => {
+const display = document.getElementById('display'), expression = document.getElementById('expression');
+let current = '';
+const safeEval = (raw) => {
+  let s = raw.replace(/[×x]/g,'*').replace(/[÷]/g,'/').replace(/[−–]/g,'-').replace(/\s/g,'');
+  if (!s || !/^[0-9.+\-*/()]+$/.test(s)) throw Error('Use numbers and + − × ÷ or brackets.');
+  // Only evaluate a restricted arithmetic expression.
+  const result = Function('"use strict"; return (' + s + ')')();
+  if (typeof result !== 'number' || !Number.isFinite(result)) throw Error('That sum has no simple number answer. Check for division by zero.');
+  return Math.round((result + Number.EPSILON) * 1e10) / 1e10;
+};
+function setCurrent(v){current=v;display.textContent=v||'0';}
+document.getElementById('keypad').addEventListener('click', e => {
+ const b=e.target.closest('button[data-key]'); if(!b)return; const k=b.dataset.key;
+ if(k==='C'){setCurrent('');expression.textContent='Cleared — try a new sum!';return;}
+ if(k==='⌫'){setCurrent(current.slice(0,-1));return;}
+ if(k==='='){try{const answer=safeEval(current);expression.textContent=current+' =';setCurrent(String(answer));}catch(err){expression.textContent=err.message;}return;}
+ setCurrent(current+k);expression.textContent='Your sum';
+});
+const input=document.getElementById('problem'), solution=document.getElementById('solution');
+function solve(raw){
+ try{
+  const answer=safeEval(raw);
+  const normal=raw.replace(/[×x]/g,' × ').replace(/[÷/]/g,' ÷ ').replace(/[−-]/g,' − ').replace(/\+/g,' + ').replace(/\s+/g,' ').trim();
+  let steps='';
+  const simple=raw.match(/^\s*(-?\d+(?:\.\d+)?)\s*([+−\-×x*/÷])\s*(-?\d+(?:\.\d+)?)\s*$/);
+  if(simple){const a=Number(simple[1]),op=simple[2],b=Number(simple[3]);let explanation='';
+   if(op==='+')explanation=`Start with ${a}, then add ${b}.`;else if(op==='-'||op==='−')explanation=`Start with ${a}, then take away ${b}.`;else if(['×','x'].includes(op))explanation=`Add ${a} together ${b} time${b===1?'':'s'} (or count in groups).`;else explanation=`Share ${a} into ${b} equal group${b===1?'':'s'}.`;
+   steps=`<p>${explanation}</p>`;
+  } else steps='<p>Remember to work out brackets first, then multiplication or division, and finally addition or subtraction.</p>';
+  solution.innerHTML=`<strong>🎉 The answer is ${answer}</strong><p>${normal} = <b>${answer}</b></p>${steps}`;
+ }catch(err){solution.innerHTML=`<strong>🤔 Let's check that sum</strong><p>${err.message} Example: 12 × 4 or (8 + 2) / 5.</p>`;}
+}
+document.getElementById('solveForm').addEventListener('submit',e=>{e.preventDefault();solve(input.value);});
+document.querySelectorAll('[data-example]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.example;solve(input.value);}));
+let mode='add',score=0,a=0,b=0,answer=0;
+const quiz=document.getElementById('quiz'), question=document.getElementById('question'), answers=document.getElementById('answers'), feedback=document.getElementById('feedback'), scoreEl=document.getElementById('score');
+function next(){
+ const max=mode==='mul'?12:50; a=Math.floor(Math.random()*(mode==='mul'?12:30))+1;b=Math.floor(Math.random()*(mode==='mul'?12:30))+1;
+ if(mode==='sub'&&b>a)[a,b]=[b,a];
+ answer=mode==='add'?a+b:mode==='sub'?a-b:a*b;
+ document.getElementById('quizMode').textContent=mode==='add'?'➕ Addition challenge':mode==='sub'?'➖ Subtraction challenge':'✖️ Times-table challenge';
+ question.textContent=`${a} ${mode==='add'?'+':mode==='sub'?'−':'×'} ${b} = ?`;
+ let opts=new Set([answer]);while(opts.size<3){let delta=Math.floor(Math.random()*10)+1;opts.add(Math.max(0,answer+(Math.random()<.5?-delta:delta)));}
+ answers.innerHTML='';[...opts].sort(()=>Math.random()-.5).forEach(n=>{let btn=document.createElement('button');btn.className='answer';btn.textContent=n;btn.addEventListener('click',()=>{if(btn.disabled)return;[...answers.children].forEach(x=>x.disabled=true);if(n===answer){score++;feedback.textContent='⭐ Correct! You are a maths star!';}else feedback.textContent=`Good try! The answer is ${answer}. Keep going!`;scoreEl.textContent='Score: '+score;});answers.appendChild(btn);});feedback.textContent='';
+}
+document.querySelectorAll('[data-mode]').forEach(btn=>btn.addEventListener('click',()=>{mode=btn.dataset.mode;quiz.classList.add('active');next();quiz.scrollIntoView({behavior:'smooth',block:'center'});}));
+document.getElementById('nextQuestion').addEventListener('click',next);
+})();
+</script>
+</body>
+</html>
